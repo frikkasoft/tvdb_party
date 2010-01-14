@@ -38,10 +38,18 @@ class TvdbPartyTest < Test::Unit::TestCase
         should "have a first episode" do
           assert_equal "110413", @series.get_episode(1, 1).id
         end
-      end
-    
+      end    
     end
-  
+    
+    context "get all episodes" do
+      setup do
+        @series = @tvdb.get_series_by_id(83232) # little britain (US)
+      end
+      
+      should "contain 6 episodes" do
+        assert_equal 6, @series.get_all_episodes.size
+      end      
+    end    
   end
   context "non english series" do
     setup do

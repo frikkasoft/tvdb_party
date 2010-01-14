@@ -74,6 +74,9 @@ module TvdbParty
     def season(season_number)
       seasons.detect{|s| s.number == season_number}
     end
-    
+
+    def get_all_episodes
+      @episodes ||= client.get_all_episodes(self)
+    end    
   end
 end

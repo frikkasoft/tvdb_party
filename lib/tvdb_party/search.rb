@@ -43,6 +43,19 @@ module TvdbParty
         nil
       end
     end
+    
+    def get_all_episodes(series, language = self.language)                       
+      response = self.class.get("/#{@api_key}/series/#{series.id}/all/#{@language}.xml")
+      return [] unless response["Data"] && response["Data"]["Episode"]
+      case response["Data"]["Episode"]
+      when Array
+        response["Data"]["Episode"].map{|result| Episode.new(result)}
+      when Hash
+        [Episode.new(response["Data"]["Episode"])]
+      else 
+        []
+      end
+    end
 
     def get_banners(series)
       response = self.class.get("/#{@api_key}/series/#{series.id}/banners.xml")
@@ -55,7 +68,6 @@ module TvdbParty
       else
         []
       end
-    end
-
+    end    
   end
 end

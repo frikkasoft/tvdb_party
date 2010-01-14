@@ -30,6 +30,11 @@ get an episode
 <code>puts episode_22.name</code>
 => What Kind of Day Has It Been?
 
+get all episodes
+<code>all_episodes = west_wing.get_all_episodes</code>
+<code>puts all_episodes.size</code>
+=> 157
+
 get series fanart - pass in your language
 <code>puts west_wing.fanart('en').first.url</code>
 => http://thetvdb.com/banners/fanart/original/72521-2.jpg

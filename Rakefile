@@ -10,7 +10,7 @@ begin
     gem.email = "jon@mustacheinc.com"
     gem.homepage = "http://github.com/maddox/tvdb_party"
     gem.authors = ["Jon Maddox"]
-    gem.add_development_dependency "thoughtbot-shoulda"
+    gem.add_development_dependency "shoulda"
     gem.add_dependency('httparty', '>= 0.4.3')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
