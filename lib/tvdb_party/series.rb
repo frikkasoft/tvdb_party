@@ -33,10 +33,8 @@ module TvdbParty
       
       begin 
         @first_aired = Date.parse(options["FirstAired"])
-      rescue
-        puts 'invalid date'
-      end
-      
+      rescue        
+      end      
     end
     
     def get_episode(season_number, episode_number)

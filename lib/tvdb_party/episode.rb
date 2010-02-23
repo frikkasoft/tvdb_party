@@ -1,6 +1,6 @@
 module TvdbParty
   class Episode
-    attr_accessor :id, :season_number, :number, :name, :overview, :air_date, :thumb, :guest_stars, :director, :writer
+    attr_accessor :id, :season_number, :number, :name, :overview, :air_date, :thumb, :guest_stars, :director, :writer, :imdb_id
 
     def initialize(options={})
       @id = options["id"]
@@ -11,6 +11,7 @@ module TvdbParty
       @thumb = "http://thetvdb.com/banners/" + options["filename"] if options["filename"].to_s != ""
       @director = options["Director"]
       @writer = options["Writer"]
+      @imdb_id = options["IMDB_ID"]
 
       if options["GuestStars"]
         @guest_stars = options["GuestStars"][1..-1].split("|")
@@ -20,8 +21,7 @@ module TvdbParty
 
       begin 
         @air_date = Date.parse(options["FirstAired"])
-      rescue
-        puts 'invalid date'
+      rescue        
       end
     end
   end
